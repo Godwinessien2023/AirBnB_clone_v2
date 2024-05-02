@@ -21,8 +21,8 @@ class FileStorage:
             if isinstance(cls, str):
                 cls = globals().get(cls)
             if cls and issubclass(cls, BaseModel):
-                cls_dict = (k: v for k,
-                            v in self.objects.items() if isinstance(v, cls))
+                cls_dict = {k: v for k,
+                            v in self.objects.items() if isinstance(v, cls)}
                 return cls_dict
         return FileStorage.__objects
 
@@ -51,10 +51,12 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
-    
+        except json.decoder.JSONDecodeError:
+            pass
+
     def delete(self, obj-None):
         """
         define obj from __objects if its inside - if obj is
