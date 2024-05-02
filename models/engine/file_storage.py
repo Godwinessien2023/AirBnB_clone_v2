@@ -22,7 +22,7 @@ class FileStorage:
                 cls = globals().get(cls)
             if cls and issubclass(cls, BaseModel):
                 cls_dict = {k: v for k,
-                            v in self.objects.items() if isinstance(v, cls)}
+                            v in self.__objects.items() if isinstance(v, cls)}
                 return cls_dict
         return FileStorage.__objects
 
@@ -57,7 +57,7 @@ class FileStorage:
         except json.decoder.JSONDecodeError:
             pass
 
-    def delete(self, obj-None):
+    def delete(self, obj=None):
         """
         define obj from __objects if its inside - if obj is
         is equal to none, do nothing
