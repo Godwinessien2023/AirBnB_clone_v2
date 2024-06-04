@@ -1,22 +1,17 @@
 #!/usr/bin/python3
+""" importing Flask module
+"""
 from flask import Flask
 
-"""
-Create a Flask app
-"""
 app = Flask(__name__)
 
 
-@app.route('/', strict_slashes=False)
+@app.route("/", strict_slashes=False)
 def hello():
-    """
-    Define route for the homepage
+    """ Defining the function hello
     """
     return "Hello HBNB!"
 
 
-"""
-Run the app
-"""
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
