@@ -7,13 +7,11 @@ Create a Flask app
 app = Flask(__name__)
 
 
-"""
-Define route for the homepage
-"""
-
-
 @app.route('/', strict_slashes=False)
-def hello_hbnb():
+def hello():
+    """
+    Define route for the homepage
+    """
     return "Hello HBNB!"
 
 
