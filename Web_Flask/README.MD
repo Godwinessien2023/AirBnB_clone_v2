@@ -1,1 +1,0 @@
-This is a readm file for the project web_flask using flask on python 3.
