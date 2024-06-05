@@ -72,3 +72,9 @@ class FileStorage:
             pass
         except KeyboardInterrupt:
             pass
+
+    def close(self):
+        """
+        define close that calls reload
+        """
+        self.reload()
