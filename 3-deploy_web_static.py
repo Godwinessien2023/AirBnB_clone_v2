@@ -6,9 +6,9 @@ from datetime import datetime
 from os import path
 
 
-env.hosts = ['18.209.20.255', '34.73.76.135']
+env.hosts = ['34.229.161.60', '54.160.83.121']
 env.user = 'ubuntu'
-env.key_filename = '~/.ssh/id_rsa'
+env.key_filename = '~/.ssh/godwin_rsa'
 
 
 def do_pack():
