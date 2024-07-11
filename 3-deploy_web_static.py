@@ -12,22 +12,23 @@ env.key_filename = '~/.ssh/godwin_rsa'
 
 
 def do_pack():
-        """Function to compress directory
-        Return: path to archive on success; None on fail
-        """
-        # Get current time
-        now = datetime.now()
-        now = now.strftime('%Y%m%d%H%M%S')
-        archive_path = 'versions/web_static_' + now + '.tgz'
+    """Function to compress directory
 
-        # Create archive
-        local('mkdir -p versions/')
-        result = local('tar -cvzf {} web_static/'.format(archive_path))
+    Return: path to archive on success; None on fail
+    """
+    # Get current time
+    now = datetime.now()
+    now = now.strftime('%Y%m%d%H%M%S')
+    archive_path = 'versions/web_static_' + now + '.tgz'
 
-        # Check if archiving was successful
-        if result.succeeded:
-                return archive_path
-        return None
+    # Create archive
+    local('mkdir -p versions/')
+    result = local('tar -cvzf {} web_static/'.format(archive_path))
+
+    # Check if archiving was successful
+    if result.succeeded:
+        return archive_path
+    return None
 
 
 def do_deploy(archive_path):
